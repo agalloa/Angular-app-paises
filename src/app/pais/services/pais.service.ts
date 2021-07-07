@@ -15,16 +15,25 @@ export class PaisService {
 
   //peticion get buscar pais
   buscarPais( termino:string ): Observable<Country[]>{
-
     const url = `${ this.apiUrl }/name/${ termino }`;
-
     return this.http.get<Country[]>( url );
   }
 
   //petcion get para buscar capital
   buscarCapital( termino: string ): Observable<Country[]>{
     const url = `${ this.apiUrl }/capital/${ termino }`;
+    return this.http.get<Country[]>( url );
+  }
 
+  //peticion get para pais id
+  getPaisPorId( id: string ): Observable<Country>{
+    const url = `${ this.apiUrl }/alpha/${ id }`;
+    return this.http.get<Country>(url);
+  }
+
+  //peticion get para la region
+  buscarRegion( region: string) : Observable<Country[]>{
+    const url = `${ this.apiUrl }/region/${ region }`;
     return this.http.get<Country[]>( url );
   }
 }
